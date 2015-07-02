@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Welcome to ScrumTaskr</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" type="text/css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+    <div class="page">
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    </body>
+</html>
