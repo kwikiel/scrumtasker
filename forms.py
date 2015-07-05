@@ -13,5 +13,5 @@ class AddTaskForm(Form):
     priority = SelectField(
         'Priority',
         validators=[DataRequired()],
-        choices=[('1', '1'), ('2', '2')])
+        choices=[('1', '1'), ('2', '2'), ('3','3'), ('4','4')])
     status = IntegerField('Status')
