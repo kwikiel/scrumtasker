@@ -6,14 +6,15 @@
     <h3>Add a new task:</h3>
     <table>
         <tr>
-            <form action="{{url_for('new_task')}}" method="post" accept-charset="utf-8">
+            <form action="{{url_for('new_task')}}" method="post">
+                {{ form.csrf_token }}
                 <td>
                   <label>Task name:</label>
                   <input name="name" type="text">
                 </td>
                 <td>
                     <label>Due Date: (mm/dd/yyyy):</label>
-                    <input  name="due_date"  type="text" width="120px">
+                    <input name="due_date"type="text" width="120px">
                 </td>
                 <td>
                     <label>Priority</label>
