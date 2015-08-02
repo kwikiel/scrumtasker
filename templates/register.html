@@ -3,7 +3,7 @@
 <h1>Welcome to ScrumTaskr</h1>
 <h3>Please register to access the task list.</h3>
 <form  method="POST" accept-charset="utf-8">
-    {{ form.csrf.token }}
+    {{ form.csrf_token }}
     <p>{{ form.name.label }}: {{ form.name }}
     {{ form.email.label }}: {{ form.email }}
    </p>
