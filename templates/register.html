@@ -14,5 +14,8 @@
 
     <p><input type="submit" value="Register"></p>
 </form>
+{% if error %}
+{{ error }}
+{% endif %}
 <p><em>Already registered</em>Click <a href="/">here</a>to login</p>
 {% endblock %}

@@ -40,10 +40,13 @@ def register():
             db.session.commit()
             flash("Thank for registering. Please login.")
             return redirect(url_for('login'))
+        else:
+            error = "not validated template"
     return render_template("register.html", form=form, error=error)
 
 @app.route('/tasks')
 @login_required
+
 def tasks():
     open_tasks = db.session.query(Task) \
             .filter_by(status='1').order_by(Task.due_date.asc())
