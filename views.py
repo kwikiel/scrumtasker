@@ -31,6 +31,7 @@ def register():
     # Nice WTForms usage
     form = RegisterForm(request.form)
     if request.method == 'POST':
+        form
         if form.validate_on_submit():
             new_user = User(
                 form.name.data,
