@@ -31,11 +31,13 @@ class Task(db.Model):
     posted_date = db.Column(db.Date, default=datetime.datetime.utcnow())
     status = db.Column(db.Integer)
 
-    def __init__(self, name, due_date, priority, status):
+    def __init__(self, name, due_date,posted_date, priority, status, user_id):
         self.name = name
         self.due_date = due_date
         self.priority = priority
         self.status = status
+        self.posted_date = posted_date
+        self.user_id = user_id
 
     def __repr__(self):
         return '<name {0}>'.format(self.name)

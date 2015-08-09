@@ -3,6 +3,7 @@ from forms import AddTaskForm, RegisterForm, LoginForm
 from flask import Flask, flash, redirect, render_template, \
     request, session, url_for, g
 from flask.ext.sqlalchemy import SQLAlchemy
+import datetime
 # Config
 app = Flask(__name__)
 app.config.from_object('_config')
@@ -79,6 +80,7 @@ def login():
             user = User.query.filter_by(name=request.form['name']).first()
             if user is not None and user.password == request.form['password']:
                 session['logged_in'] = True
+                session['user_id'] = user.id
                 flash('Welcome!')
                 return redirect(url_for('tasks'))
             else:
@@ -98,10 +100,12 @@ def new_task():
     if request.method == "POST":
         if form.validate_on_submit() or True:
             new_task = Task(
-                form.name.data,
-                form.due_date.data,
-                form.priority.data,
-                '1'
+                name = form.name.data,
+                due_date = form.due_date.data,
+                priority = form.priority.data,
+                status = '1',
+                posted_date = datetime.datetime.utcnow(),
+                user_id = session['user_id']
                 )
             db.session.add(new_task)
             db.session.commit()
