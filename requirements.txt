@@ -23,4 +23,3 @@ coverage==3.7.1
 itsdangerous==0.24
 passlib==1.6.2
 py-bcrypt==0.4
-wsgiref==0.1.2
